@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Portfolio</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Portfolio</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<%= render 'layouts/nav' %>
+
+<div class='container-fluid'>
+	<% flash.each do |key, value| %>
+		<div class='alert alert-<%= key %>'><%= value %></div>
+	<% end %>
+	
+	<div class='span12'>
+
+		<div class="container">
+		  
+			<div class="starter-template">
+				<h1>Bootstrap starter template</h1>
+				<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+			</div>
+		  
+		</div><!-- /.container -->
+
+		<%= yield %>
+
+	</div>
+	
+	<%= debug(params) if Rails.env.development? %>
+</div>
 
 </body>
 </html>
