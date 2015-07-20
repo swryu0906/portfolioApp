@@ -15,6 +15,11 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <!-- Category select -->
+  <div class="field">
+    <%= f.label :category_id, 'Category' %><br>
+    <%= f.collection_select(:category_id, Category.all.order(:name), :id, :name) %>
+  </div> 
   <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>
@@ -31,10 +36,6 @@
     <%= f.label :thumbnail %><br>
     <%= f.text_field :thumbnail %>
   </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
-  </div> 
   <div class="field">
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
